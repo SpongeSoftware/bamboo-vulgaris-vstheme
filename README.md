@@ -6,7 +6,7 @@
 
 ---
 
-Bamboo (Vulgaris) brings the earthy, carefully balanced tones of the bamboo.nvim color scheme to Visual Studio. Designed for developers who use the same palette across their entire environment — Neovim, Wezterm, and now Visual Studio — with consistent syntax semantics across all three.
+Bamboo (Vulgaris) brings the earthy, carefully balanced tones of the bamboo.nvim color scheme to Visual Studio.
 
 The theme covers the full surface area of the IDE: editor syntax and semantic tokens, environment chrome, panels and tool windows, the integrated terminal (including all 16 ANSI colors), IntelliSense completion, CodeLens, and the VS 2026 Fluent Design shell tokens.
 
