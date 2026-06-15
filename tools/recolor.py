@@ -114,7 +114,103 @@ SYNTAX_ROLES = {
     "XAML Markup Extension Parameter Value": GREEN,
 }
 
+LBLU = "96C7EF"   # namespaces (light blue)
+
+# Roslyn semantic classifications. Working VS themes register these under the
+# "ColorizedSignatureHelp colors" category; VS reads editor semantic colors from
+# there. Foregrounds follow the bamboo vulgaris role palette.
+SEMANTIC = {
+    # types
+    "class name":            YELL,
+    "struct name":           YELL,
+    "interface name":        GREEN,
+    "enum name":             YELL,
+    "delegate name":         YELL,
+    "module name":           YELL,
+    "record class name":     YELL,
+    "record struct name":    YELL,
+    "type parameter name":   BPUR,
+    # members
+    "method name":           BLUE,
+    "extension method name": BLUE,
+    "property name":         CYAN,
+    "event name":            CYAN,
+    "field name":            RED,
+    "enum member name":      ORNG,
+    "constant name":         ORNG,
+    # identifiers
+    "local name":            FG,
+    "parameter name":        FG,
+    "namespace name":        LBLU,
+    "label name":            RED,
+    # keywords / operators / punctuation
+    "keyword - control":     PURP,
+    "operator - overloaded": LPUR,
+    "punctuation":           LGRY,
+    "preprocessor text":     LGRY,
+    # strings
+    "string - escape character": ORNG,
+    "string - verbatim":     GREEN,
+    # regex
+    "regex - text":          GREEN,
+    "regex - character class": YELL,
+    "regex - anchor":        ORNG,
+    "regex - quantifier":    ORNG,
+    "regex - grouping":      LPUR,
+    "regex - alternation":   LPUR,
+    "regex - self escaped character": ORNG,
+    "regex - other escape":  ORNG,
+    "regex - comment":       GREY,
+    # diagnostics
+    "syntax error":          RED,
+    "compiler error":        RED,
+    "other error":           RED,
+    "compiler warning":      YELL,
+    "hinted suggestion":     CYAN,
+    # xml doc comments
+    "xml doc comment - text":         GREEN,
+    "xml doc comment - name":         BLUE,
+    "xml doc comment - delimiter":    LGRY,
+    "xml doc comment - comment":      GREY,
+    "xml doc comment - attribute name":  GREEN,
+    "xml doc comment - attribute value": GREEN,
+    "xml doc comment - attribute quotes": LGRY,
+    "xml doc comment - cdata section":  FG,
+    "xml doc comment - entity reference": ORNG,
+    "xml doc comment - processing instruction": LGRY,
+}
+
+SIGHELP_GUID = "{75a05685-00a8-4ded-bae5-e7a50bfa929a}"
 LANG_SERVICE_GUID = "{e0187991-b458-4f7e-8ca9-42c9a573b56c}"
+
+
+def add_semantic_colors(xml: str) -> str:
+    """Inject Roslyn semantic classification colors into the sig-help category."""
+    cat_re = re.compile(
+        r'(<Category Name="ColorizedSignatureHelp colors"[^>]*>)(.*?)(</Category>)',
+        re.DOTALL)
+    m = cat_re.search(xml)
+    if not m:
+        return xml
+    head, body, tail = m.group(1), m.group(2), m.group(3)
+
+    additions = []
+    for name, rgb in SEMANTIC.items():
+        if f'Name="{name}"' in body:
+            # already present — update its foreground instead
+            color_re = re.compile(
+                r'(<Color Name="' + re.escape(name) + r'">.*?<Foreground Type="CT_RAW" Source=")[0-9A-Fa-f]{8}(")',
+                re.DOTALL)
+            body = color_re.sub(r'\g<1>FF' + rgb + r'\g<2>', body)
+        else:
+            additions.append(
+                f'      <Color Name="{name}">\n'
+                f'        <Background Type="CT_AUTOMATIC" Source="00000000" />\n'
+                f'        <Foreground Type="CT_RAW" Source="FF{rgb}" />\n'
+                f'      </Color>\n')
+
+    body = body + "".join(additions)
+    return xml[:m.start()] + head + body + tail + xml[m.end():]
 
 
 def apply_syntax_roles(xml: str) -> str:
@@ -170,6 +266,9 @@ def main():
 
     # Override syntax token foregrounds by bamboo role.
     xml = apply_syntax_roles(xml)
+
+    # Inject Roslyn semantic classification colors (class/method/property/etc.).
+    xml = add_semantic_colors(xml)
 
     # Rewrite the Theme element: name, GUID, dark fallback.
     xml = re.sub(

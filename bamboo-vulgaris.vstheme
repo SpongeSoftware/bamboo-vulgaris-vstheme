@@ -1287,51 +1287,51 @@
         <Foreground Type="CT_RAW" Source="FFF1E9D2" />
       </Color>
       <Color Name="punctuation">
-        <Foreground Type="CT_RAW" Source="FF5B5E5A" />
+        <Foreground Type="CT_RAW" Source="FF838781" />
       </Color>
       <Color Name="interface name">
-        <Foreground Type="CT_RAW" Source="FFFF9966" />
+        <Foreground Type="CT_RAW" Source="FF8FB573" />
       </Color>
       <Color Name="type parameter name">
-        <Foreground Type="CT_RAW" Source="FFFF9966" />
+        <Foreground Type="CT_RAW" Source="FFDF73FF" />
       </Color>
       <Color Name="enum name">
-        <Foreground Type="CT_RAW" Source="FFFF9966" />
+        <Foreground Type="CT_RAW" Source="FFDBB651" />
       </Color>
       <Color Name="module name">
-        <Foreground Type="CT_RAW" Source="FFFF9966" />
+        <Foreground Type="CT_RAW" Source="FFDBB651" />
       </Color>
       <Color Name="class name">
-        <Foreground Type="CT_RAW" Source="FFFF9966" />
+        <Foreground Type="CT_RAW" Source="FFDBB651" />
       </Color>
       <Color Name="delegate name">
-        <Foreground Type="CT_RAW" Source="FFFF9966" />
+        <Foreground Type="CT_RAW" Source="FFDBB651" />
       </Color>
       <Color Name="struct name">
-        <Foreground Type="CT_RAW" Source="FFFF9966" />
+        <Foreground Type="CT_RAW" Source="FFDBB651" />
       </Color>
       <Color Name="string - verbatim">
-        <Foreground Type="CT_RAW" Source="FF70C2BE" />
+        <Foreground Type="CT_RAW" Source="FF8FB573" />
       </Color>
       <Color Name="Operator">
         <Background Type="CT_AUTOMATIC" Source="00000000" />
         <Foreground Type="CT_RAW" Source="FFF1E9D2" />
       </Color>
       <Color Name="preprocessor text">
-        <Foreground Type="CT_RAW" Source="FF5B5E5A" />
+        <Foreground Type="CT_RAW" Source="FF838781" />
       </Color>
       <Color Name="MarkerFormatDefinition/HighlightedDefinition">
         <Background Type="CT_RAW" Source="FF2F312C" />
         <Foreground Type="CT_RAW" Source="FF3A3D37" />
       </Color>
       <Color Name="xml doc comment - attribute name">
-        <Foreground Type="CT_RAW" Source="FFC8C8C8" />
+        <Foreground Type="CT_RAW" Source="FF8FB573" />
       </Color>
       <Color Name="xml doc comment - attribute quotes">
-        <Foreground Type="CT_RAW" Source="FFC8C8C8" />
+        <Foreground Type="CT_RAW" Source="FF838781" />
       </Color>
       <Color Name="xml doc comment - attribute value">
-        <Foreground Type="CT_RAW" Source="FFC8C8C8" />
+        <Foreground Type="CT_RAW" Source="FF8FB573" />
       </Color>
       <Color Name="xml doc comment - cdata section">
         <Foreground Type="CT_RAW" Source="FFF1E9D2" />
@@ -1377,7 +1377,151 @@
         <Background Type="CT_RAW" Source="FF2F312C" />
         <Foreground Type="CT_RAW" Source="FF3A3D37" />
       </Color>
-    </Category>
+          <Color Name="record class name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFDBB651" />
+      </Color>
+      <Color Name="record struct name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFDBB651" />
+      </Color>
+      <Color Name="method name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FF57A5E5" />
+      </Color>
+      <Color Name="extension method name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FF57A5E5" />
+      </Color>
+      <Color Name="property name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FF70C2BE" />
+      </Color>
+      <Color Name="event name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FF70C2BE" />
+      </Color>
+      <Color Name="field name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFE75A7C" />
+      </Color>
+      <Color Name="enum member name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFFF9966" />
+      </Color>
+      <Color Name="constant name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFFF9966" />
+      </Color>
+      <Color Name="local name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFF1E9D2" />
+      </Color>
+      <Color Name="parameter name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFF1E9D2" />
+      </Color>
+      <Color Name="namespace name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FF96C7EF" />
+      </Color>
+      <Color Name="label name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFE75A7C" />
+      </Color>
+      <Color Name="keyword - control">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFAAAAFF" />
+      </Color>
+      <Color Name="operator - overloaded">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFC5C2EE" />
+      </Color>
+      <Color Name="string - escape character">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFFF9966" />
+      </Color>
+      <Color Name="regex - text">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FF8FB573" />
+      </Color>
+      <Color Name="regex - character class">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFDBB651" />
+      </Color>
+      <Color Name="regex - anchor">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFFF9966" />
+      </Color>
+      <Color Name="regex - quantifier">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFFF9966" />
+      </Color>
+      <Color Name="regex - grouping">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFC5C2EE" />
+      </Color>
+      <Color Name="regex - alternation">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFC5C2EE" />
+      </Color>
+      <Color Name="regex - self escaped character">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFFF9966" />
+      </Color>
+      <Color Name="regex - other escape">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFFF9966" />
+      </Color>
+      <Color Name="regex - comment">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FF5B5E5A" />
+      </Color>
+      <Color Name="syntax error">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFE75A7C" />
+      </Color>
+      <Color Name="compiler error">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFE75A7C" />
+      </Color>
+      <Color Name="other error">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFE75A7C" />
+      </Color>
+      <Color Name="compiler warning">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFDBB651" />
+      </Color>
+      <Color Name="hinted suggestion">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FF70C2BE" />
+      </Color>
+      <Color Name="xml doc comment - text">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FF8FB573" />
+      </Color>
+      <Color Name="xml doc comment - name">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FF57A5E5" />
+      </Color>
+      <Color Name="xml doc comment - delimiter">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FF838781" />
+      </Color>
+      <Color Name="xml doc comment - comment">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FF5B5E5A" />
+      </Color>
+      <Color Name="xml doc comment - entity reference">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FFFF9966" />
+      </Color>
+      <Color Name="xml doc comment - processing instruction">
+        <Background Type="CT_AUTOMATIC" Source="00000000" />
+        <Foreground Type="CT_RAW" Source="FF838781" />
+      </Color>
+</Category>
     <Category Name="Command Window" GUID="{ee1be240-4e81-4beb-8eea-54322b6b1bf5}">
       <Color Name="Plain Text">
         <Background Type="CT_RAW" Source="FF252623" />
