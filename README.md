@@ -42,7 +42,7 @@ Search for **Bamboo (Vulgaris)** in **Extensions → Manage Extensions** inside 
 
 ## Requirements
 
-- Visual Studio 2022 (v17.0+)
+- Visual Studio 2022 (v17.0+) or Visual Studio 2026 (v18.0+)
 
 ## Screenshots
 
