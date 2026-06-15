@@ -12,7 +12,8 @@ compiles this .vstheme into a real pkgdef via Microsoft.VisualStudio.VsixColorCo
 
 Skeleton source:
   github.com/catppuccin/visual-studio :: "Catppuccin VS Themes/Catppuccin Mocha.vstheme"
-  saved here as tools/CatppuccinMocha.vstheme
+  saved here as tools/CatppuccinMocha.skeleton.xml (the .xml extension keeps the build's
+  VsixColorCompiler — which globs **/*.vstheme — from compiling the skeleton itself).
 
 Usage:
   python3 tools/recolor.py
@@ -109,7 +110,7 @@ def add_semantic(xml: str) -> str:
 
 def main():
     here = Path(__file__).resolve().parent
-    skeleton = here / "CatppuccinMocha.vstheme"
+    skeleton = here / "CatppuccinMocha.skeleton.xml"
     xml = skeleton.read_text(encoding="utf-8")
 
     xml = re.sub(r'Source="([0-9A-Fa-f]{8})"',
