@@ -55,10 +55,6 @@ Open **Extensions → Manage Extensions** in Visual Studio, search for **Bamboo 
 | Visual Studio 2022 | 17.0 and later |
 | Visual Studio 2026 | 18.0 and later |
 
-## Screenshots
-
-_Coming soon._
-
 ## License
 
 MIT
