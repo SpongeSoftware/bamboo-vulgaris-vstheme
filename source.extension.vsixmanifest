@@ -7,25 +7,16 @@
               Language="en-US"
               Publisher="SpongeSoftware" />
     <DisplayName>Bamboo (Vulgaris)</DisplayName>
-    <Description xml:space="preserve">A dark Visual Studio color theme mirroring the bamboo.nvim vulgaris palette. Earthy greens, warm backgrounds, and a carefully balanced set of syntax colors that feel right at home alongside Neovim and Wezterm configurations sharing the same palette.</Description>
+    <Description xml:space="preserve">A dark Visual Studio color theme mirroring the bamboo.nvim vulgaris palette.</Description>
     <MoreInfo>https://github.com/SpongeSoftware/bamboo-vulgaris-vstheme</MoreInfo>
-    <License />
     <Tags>theme;dark;color theme;bamboo;neovim</Tags>
-    <GettingStartedGuide />
     <ReleaseNotes>https://github.com/SpongeSoftware/bamboo-vulgaris-vstheme/blob/main/CHANGELOG.md</ReleaseNotes>
-    <PreviewImage />
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,)" />
     <InstallationTarget Id="Microsoft.VisualStudio.Professional" Version="[17.0,)" />
     <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,)" />
   </Installation>
-  <Dependencies>
-    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
-  </Dependencies>
-  <Prerequisites>
-    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
-  </Prerequisites>
   <Assets>
     <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="bamboo-vulgaris.pkgdef" />
     <Asset Type="Microsoft.VisualStudio.ColorTheme" d:Source="File" Path="bamboo-vulgaris.vstheme" />
