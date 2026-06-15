@@ -1,1 +1,4 @@
 *.vsix
+bin/
+obj/
+packages/

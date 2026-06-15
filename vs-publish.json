@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json.schemastore.org/vsix-publish",
+  "categories": [ "themes" ],
+  "identity": {
+    "internalName": "bamboo-vulgaris-vstheme"
+  },
+  "overview": "README.md",
+  "priceCategory": "free",
+  "publisher": "SpongeSoftware",
+  "private": false,
+  "qna": true,
+  "repo": "https://github.com/SpongeSoftware/bamboo-vulgaris-vstheme"
+}

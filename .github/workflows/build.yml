@@ -1,0 +1,37 @@
+name: Build VSIX
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Publish to VS Marketplace"
+        type: boolean
+        default: false
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add NuGet to PATH
+        uses: nuget/setup-nuget@v2
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v2
+      - name: Restore NuGet packages
+        run: nuget restore BambooVulgaris.csproj -PackagesDirectory packages
+      - name: Build VSIX
+        run: msbuild BambooVulgaris.csproj /p:Configuration=Release /p:DeployExtension=false
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bamboo-vulgaris-vsix
+          path: bin/Release/BambooVulgaris.ColorTheme.vsix
+      - name: Publish to Marketplace
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish }}
+        run: |
+          $vsix = Get-ChildItem -Recurse -Filter *.vsix | Select-Object -First 1
+          & "${env:VSINSTALLDIR}\VSSDK\VisualStudioIntegration\Tools\Bin\VsixPublisher.exe" publish -payload "$($vsix.FullName)" -publishManifest "vs-publish.json" -personalAccessToken "${{ secrets.VS_MARKETPLACE_PAT }}"
