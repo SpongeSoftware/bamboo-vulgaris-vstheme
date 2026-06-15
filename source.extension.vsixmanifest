@@ -9,8 +9,8 @@
     <DisplayName>Bamboo (Vulgaris)</DisplayName>
     <Description xml:space="preserve">A dark Visual Studio color theme mirroring the bamboo.nvim vulgaris palette.</Description>
     <MoreInfo>https://github.com/SpongeSoftware/bamboo-vulgaris-vstheme</MoreInfo>
-    <Tags>theme;dark;color theme;bamboo;neovim</Tags>
     <ReleaseNotes>https://github.com/SpongeSoftware/bamboo-vulgaris-vstheme/blob/main/CHANGELOG.md</ReleaseNotes>
+    <Tags>theme;dark;color theme;bamboo;neovim</Tags>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,)">
