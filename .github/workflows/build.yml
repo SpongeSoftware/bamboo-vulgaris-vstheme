@@ -25,6 +25,23 @@ jobs:
         run: nuget restore BambooVulgaris.csproj -PackagesDirectory packages
       - name: Build VSIX
         run: msbuild BambooVulgaris.csproj /p:Configuration=Release /p:DeployExtension=false
+      - name: Verify theme compiled into pkgdef
+        shell: pwsh
+        run: |
+          $vsix = Get-ChildItem -Path bin/Release -Filter *.vsix | Select-Object -First 1
+          if (-not $vsix) { throw "No .vsix produced" }
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          $zip = [System.IO.Compression.ZipFile]::OpenRead($vsix.FullName)
+          try {
+            $pkg = $zip.Entries | Where-Object { $_.FullName -like "*.pkgdef" } | Select-Object -First 1
+            if (-not $pkg) { throw "No .pkgdef inside the VSIX — theme was not compiled" }
+            $reader = New-Object System.IO.StreamReader($pkg.Open())
+            $text = $reader.ReadToEnd(); $reader.Close()
+            if ($text -notmatch '"Data"=hex:') {
+              throw "pkgdef has no compiled color data (no Data=hex blobs) — theme would render light"
+            }
+            Write-Host "OK: $($pkg.FullName) contains compiled color data."
+          } finally { $zip.Dispose() }
       - name: Upload VSIX artifact
         uses: actions/upload-artifact@v4
         with:

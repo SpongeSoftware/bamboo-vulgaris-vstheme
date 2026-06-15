@@ -13,10 +13,11 @@
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
-    <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
+    <!-- Ship the assembly: the compiled theme pkgdef is registered as its VsPackage. -->
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
     <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
     <IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
-    <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
+    <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
     <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
     <UseCodebase>true</UseCodebase>
   </PropertyGroup>
@@ -27,22 +28,19 @@
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
+    <!-- Compiled by VsixColorCompiler (globs **/*.vstheme) into a registered pkgdef. -->
+    <None Include="bamboo-vulgaris.vstheme" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bamboo-vulgaris.pkgdef">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="bamboo-vulgaris.vstheme">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="README.md">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- Use the VSSDK targets shipped in the NuGet package (no VS SDK MSI required on the build agent) -->
+  <!-- VSSDK targets from the NuGet package (no VS SDK MSI required on the build agent). -->
   <PropertyGroup>
     <VSSDKBuildToolsPath>$(MSBuildProjectDirectory)\packages\Microsoft.VSSDK.BuildTools.17.12.2069</VSSDKBuildToolsPath>
+    <VsixColorCompilerPath>$(MSBuildProjectDirectory)\packages\Microsoft.VisualStudio.VsixColorCompiler.17.0.31709.430</VsixColorCompilerPath>
   </PropertyGroup>
   <Import Project="$(VSSDKBuildToolsPath)\tools\vssdk\Microsoft.VsSDK.targets" Condition="Exists('$(VSSDKBuildToolsPath)\tools\vssdk\Microsoft.VsSDK.targets')" />
+  <!-- Compiles bamboo-vulgaris.vstheme -> compiled pkgdef and adds it to the VSIX. -->
+  <Import Project="$(VsixColorCompilerPath)\build\Microsoft.VisualStudio.VsixColorCompiler.targets" Condition="Exists('$(VsixColorCompilerPath)\build\Microsoft.VisualStudio.VsixColorCompiler.targets')" />
 </Project>

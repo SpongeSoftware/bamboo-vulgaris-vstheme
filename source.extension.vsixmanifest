@@ -3,7 +3,7 @@
                  xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
     <Identity Id="BambooVulgaris.ColorTheme"
-              Version="1.0.1"
+              Version="1.0.2"
               Language="en-US"
               Publisher="SpongeSoftware" />
     <DisplayName>Bamboo (Vulgaris)</DisplayName>
@@ -36,8 +36,6 @@
     <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
   </Prerequisites>
   <Assets>
-    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="bamboo-vulgaris.pkgdef" />
-    <Asset Type="Microsoft.VisualStudio.ColorTheme" d:Source="File" Path="bamboo-vulgaris.vstheme" />
-    <Asset Type="Microsoft.VisualStudio.Services.Content.Details" d:Source="File" Path="README.md" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
   </Assets>
 </PackageManifest>

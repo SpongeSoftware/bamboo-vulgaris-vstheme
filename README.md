@@ -37,16 +37,46 @@ The theme covers the full surface area of the IDE: editor syntax and semantic to
 
 Open **Extensions → Manage Extensions** in Visual Studio, search for **Bamboo (Vulgaris)**, and click **Download**.
 
-### Manual installation
+### Manual installation (from a built VSIX)
 
-1. Download `bamboo-vulgaris.vstheme` from this repository.
-2. Copy it to the Visual Studio themes directory:
-   ```
-   %LOCALAPPDATA%\Microsoft\VisualStudio\<version>\Themes\
-   ```
-   Create the `Themes` folder if it does not exist.
+1. Download the `.vsix` — either from the [Releases](https://github.com/SpongeSoftware/bamboo-vulgaris-vstheme/releases) or by building it (see below).
+2. Double-click the `.vsix` to install, or use **Extensions → Manage Extensions → Install from VSIX**.
 3. Restart Visual Studio.
-4. Navigate to **Tools → Options → Environment → General** and select **Bamboo (Vulgaris)** from the **Color theme** dropdown.
+4. Go to **Tools → Options → Environment → General** and pick **Bamboo (Vulgaris)** from the **Color theme** dropdown.
+
+> The loose `bamboo-vulgaris.vstheme` file cannot be installed on its own — Visual Studio reads colors from a *compiled* pkgdef that is produced when the `.vstheme` is built into a VSIX. Always install the `.vsix`.
+
+## Development & testing
+
+Edit colors by changing the palette mapping in [`tools/recolor.py`](tools/recolor.py), then regenerate the theme:
+
+```bash
+python3 tools/recolor.py      # rewrites bamboo-vulgaris.vstheme
+```
+
+The build compiles `bamboo-vulgaris.vstheme` into a registered pkgdef using
+`Microsoft.VisualStudio.VsixColorCompiler`. **Always test a freshly built VSIX before publishing a new version** — there are two ways to get one:
+
+### Option A — build in GitHub Actions (no Windows needed)
+
+1. Push your change. The **Build VSIX** workflow builds on a Windows runner and the
+   *Verify theme compiled into pkgdef* step fails the build if the colors didn't compile in.
+2. Open the workflow run → **Artifacts** → download **bamboo-vulgaris-vsix** → unzip to get `BambooVulgaris.ColorTheme.vsix`.
+3. (Optional sanity check, on any OS) unzip the `.vsix` and confirm the bundled `*.pkgdef`
+   contains `"Data"=hex:` lines — that is the compiled color data VS actually paints with.
+4. On a Windows machine, install the `.vsix`, restart VS, and select the theme.
+
+### Option B — build from the solution in Visual Studio
+
+1. Open `BambooVulgaris.sln` in Visual Studio 2022/2026.
+2. Set the configuration to **Release** and **Build**. The VSIX lands at
+   `bin/Release/BambooVulgaris.ColorTheme.vsix`.
+3. Or press **F5** to launch the Visual Studio *Experimental Instance* with the theme
+   already loaded — the fastest way to iterate on colors.
+
+Once the build looks right, publish via **Actions → Build VSIX → Run workflow** with
+**publish = true** (requires the `VS_MARKETPLACE_PAT` repo secret), or upload the
+`.vsix` manually at the [Marketplace manage page](https://marketplace.visualstudio.com/manage).
 
 ## Compatibility
 
