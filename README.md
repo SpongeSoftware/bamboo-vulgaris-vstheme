@@ -1,10 +1,18 @@
-# Bamboo (Vulgaris) — Visual Studio Color Theme
+<div align="center">
+  <img src="assets/logo.svg" alt="Bamboo (Vulgaris) logo" width="100"/>
+  <h1>Bamboo (Vulgaris)</h1>
+  <p>A dark color theme for Visual Studio, derived from the <a href="https://github.com/ribru17/bamboo.nvim">bamboo.nvim</a> vulgaris palette.</p>
+</div>
 
-A dark Visual Studio color theme mirroring the [bamboo.nvim](https://github.com/ribru17/bamboo.nvim) **vulgaris** palette. Designed to feel consistent across a full development environment — Neovim, Wezterm, and Visual Studio all sharing the same earthy, bamboo-inspired colors.
+---
+
+Bamboo (Vulgaris) brings the earthy, carefully balanced tones of the bamboo.nvim color scheme to Visual Studio. Designed for developers who use the same palette across their entire environment — Neovim, Wezterm, and now Visual Studio — with consistent syntax semantics across all three.
+
+The theme covers the full surface area of the IDE: editor syntax and semantic tokens, environment chrome, panels and tool windows, the integrated terminal (including all 16 ANSI colors), IntelliSense completion, CodeLens, and the VS 2026 Fluent Design shell tokens.
 
 ## Color Palette
 
-| Role | Color | Hex |
+| Role | Token | Hex |
 |---|---|---|
 | Background | `bg0` | `#252623` |
 | Panel background | `bg1` | `#2f312c` |
@@ -15,7 +23,7 @@ A dark Visual Studio color theme mirroring the [bamboo.nvim](https://github.com/
 | Comments | `grey` | `#5b5e5a` |
 | Keywords | `purple` | `#aaaaff` |
 | Strings | `green` | `#8fb573` |
-| Types / Classes | `yellow` | `#dbb651` |
+| Types / Classes / Structs | `yellow` | `#dbb651` |
 | Functions / Methods | `blue` | `#57a5e5` |
 | Properties / Events | `cyan` | `#70c2be` |
 | Variables / Errors | `red` | `#e75a7c` |
@@ -27,22 +35,25 @@ A dark Visual Studio color theme mirroring the [bamboo.nvim](https://github.com/
 
 ### Via Visual Studio Marketplace (recommended)
 
-Search for **Bamboo (Vulgaris)** in **Extensions → Manage Extensions** inside Visual Studio 2022, or install from the [marketplace listing](https://marketplace.visualstudio.com/items?itemName=sponge-software.BambooVulgaris).
+Open **Extensions → Manage Extensions** in Visual Studio, search for **Bamboo (Vulgaris)**, and click **Download**.
 
 ### Manual installation
 
 1. Download `bamboo-vulgaris.vstheme` from this repository.
-2. Copy it to:
+2. Copy it to the Visual Studio themes directory:
    ```
    %LOCALAPPDATA%\Microsoft\VisualStudio\<version>\Themes\
    ```
-   (Create the `Themes` folder if it does not exist.)
+   Create the `Themes` folder if it does not exist.
 3. Restart Visual Studio.
-4. Go to **Tools → Options → Environment → General** and select **Bamboo (Vulgaris)** from the Color theme dropdown.
+4. Navigate to **Tools → Options → Environment → General** and select **Bamboo (Vulgaris)** from the **Color theme** dropdown.
 
-## Requirements
+## Compatibility
 
-- Visual Studio 2022 (v17.0+) or Visual Studio 2026 (v18.0+)
+| Product | Version |
+|---|---|
+| Visual Studio 2022 | 17.0 and later |
+| Visual Studio 2026 | 18.0 and later |
 
 ## Screenshots
 
