@@ -23,6 +23,13 @@ jobs:
         uses: microsoft/setup-msbuild@v2
       - name: Restore NuGet packages
         run: nuget restore BambooVulgaris.csproj -PackagesDirectory packages
+      - name: Stamp version from CHANGELOG
+        shell: pwsh
+        run: |
+          $v = python tools/set_version.py
+          if (-not $v) { throw "Could not determine version from CHANGELOG.md" }
+          "VERSION=$v" | Out-File -FilePath $env:GITHUB_ENV -Append
+          Write-Host "Building version $v"
       - name: Build VSIX
         run: msbuild BambooVulgaris.csproj /p:Configuration=Release /p:DeployExtension=false
       - name: Verify theme compiled into pkgdef
@@ -45,7 +52,7 @@ jobs:
       - name: Upload VSIX artifact
         uses: actions/upload-artifact@v4
         with:
-          name: bamboo-vulgaris-vsix
+          name: bamboo-vulgaris-${{ env.VERSION }}
           path: bin/Release/BambooVulgaris.ColorTheme.vsix
       - name: Publish to Marketplace
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish }}

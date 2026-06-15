@@ -74,9 +74,21 @@ The build compiles `bamboo-vulgaris.vstheme` into a registered pkgdef using
 3. Or press **F5** to launch the Visual Studio *Experimental Instance* with the theme
    already loaded — the fastest way to iterate on colors.
 
-Once the build looks right, publish via **Actions → Build VSIX → Run workflow** with
-**publish = true** (requires the `VS_MARKETPLACE_PAT` repo secret), or upload the
-`.vsix` manually at the [Marketplace manage page](https://marketplace.visualstudio.com/manage).
+### Releasing a new version
+
+The version is tracked in `CHANGELOG.md` (semantic versioning) and stamped into the VSIX
+automatically — never hand-edit the version in `source.extension.vsixmanifest`.
+
+1. Add a new entry at the top of `CHANGELOG.md`: `## [x.y.z] — YYYY-MM-DD`.
+2. Commit and push. CI runs `tools/set_version.py`, which copies that version into the
+   manifest before building, so the artifact (named `bamboo-vulgaris-<version>`) carries it.
+3. Publish via **Actions → Build VSIX → Run workflow** with **publish = true** (requires the
+   `VS_MARKETPLACE_PAT` repo secret), or upload the `.vsix` manually at the
+   [Marketplace manage page](https://marketplace.visualstudio.com/manage).
+
+Bumping the CHANGELOG each release also avoids the "version already exists" rejection from
+the marketplace. For a local build, run `python3 tools/set_version.py` first so the `.sln`
+build matches the CHANGELOG.
 
 ## Compatibility
 
