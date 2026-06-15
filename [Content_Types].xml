@@ -3,4 +3,5 @@
   <Default Extension=".vsixmanifest" ContentType="text/xml" />
   <Default Extension=".vstheme"      ContentType="application/octet-stream" />
   <Default Extension=".pkgdef"       ContentType="text/plain" />
+  <Default Extension=".md"           ContentType="text/markdown" />
 </Types>

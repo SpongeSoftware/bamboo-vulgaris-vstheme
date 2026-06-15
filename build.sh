@@ -5,7 +5,7 @@ VERSION=$(sed -n 's/^[[:space:]]*Version="\([^"]*\)"[[:space:]]*$/\1/p' source.e
 OUT="bamboo-vulgaris-${VERSION}.vsix"
 
 cp source.extension.vsixmanifest extension.vsixmanifest
-zip -X "$OUT" "[Content_Types].xml" extension.vsixmanifest bamboo-vulgaris.pkgdef bamboo-vulgaris.vstheme
+zip -X "$OUT" "[Content_Types].xml" extension.vsixmanifest bamboo-vulgaris.pkgdef bamboo-vulgaris.vstheme README.md
 rm extension.vsixmanifest
 
 echo "Built: $OUT"
