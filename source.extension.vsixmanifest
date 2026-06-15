@@ -13,10 +13,28 @@
     <ReleaseNotes>https://github.com/SpongeSoftware/bamboo-vulgaris-vstheme/blob/main/CHANGELOG.md</ReleaseNotes>
   </Metadata>
   <Installation>
-    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,)" />
-    <InstallationTarget Id="Microsoft.VisualStudio.Professional" Version="[17.0,)" />
-    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,)" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Professional" Version="[17.0,)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Professional" Version="[17.0,)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
   </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
   <Assets>
     <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="bamboo-vulgaris.pkgdef" />
     <Asset Type="Microsoft.VisualStudio.ColorTheme" d:Source="File" Path="bamboo-vulgaris.vstheme" />
